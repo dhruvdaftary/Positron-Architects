@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — Positron Architects</title>
+<meta name="description" content="The Positron Architects project archive — industrial plants, IT parks, institutional buildings and residential work across Mumbai &amp; Thane.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+.cat-nav{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px;}
+.cat-nav a{font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;border:1px solid var(--stone);padding:9px 16px;color:var(--charcoal);border-radius:999px;}
+.cat-nav a:hover{border-color:var(--gold);color:var(--navy);}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav">
+    <a href="index.html" class="brand">
+      <span class="mark" aria-hidden="true"></span>
+      <span class="word">POSITRON<small>Architects · Designers · Planners</small></span>
+    </a>
+    <nav class="links" id="navlinks">
+      <a href="index.html">Home</a>
+      <a href="vision.html">Vision</a>
+      <a href="team.html">Our Team</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="services.html">Services</a>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<div class="page-head">
+  <div class="wrap">
+    <div class="eyebrow">Project Index — partial archive</div>
+    <h1>Forty-plus sheets, three decades.</h1>
+    <p class="lede">Click any project for more detail. Photos are placeholders until real images are added — see the comment in the page source for exactly where to drop them in.</p>
+    <div class="cat-nav">
+      <a href="#industrial">01 / Industrial</a>
+      <a href="#itparks">02 / IT Parks &amp; Institutional</a>
+      <a href="#residential">03 / Residential</a>
+    </div>
+  </div>
+</div>
+
+<section id="industrial">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Industrial Projects</h2>
+      <p class="desc">Bio-tech, pharmaceutical, chemical, automotive and precision-engineering facilities — SBU 01, Thane.</p>
+    </div>
+    <div class="sheet-grid" id="grid-industrial"></div>
+  </div>
+</section>
+
+<section id="itparks" style="border-top:1px solid var(--line);background:var(--concrete);">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>IT Parks &amp; Institutional</h2>
+      <p class="desc">MIDC offices, IT parks and public buildings across Navi Mumbai &amp; Thane.</p>
+    </div>
+    <div class="sheet-grid" id="grid-itparks"></div>
+  </div>
+</section>
+
+<section id="residential">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Residential</h2>
+      <p class="desc">Individual houses, apartment towers and large residential complexes — SBU 02, Ghatkopar.</p>
+    </div>
+    <div class="sheet-grid" id="grid-residential"></div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap" style="display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;">
+    <div>
+      <h2>This is a partial archive.</h2>
+      <p>Ask us for the complete project record relevant to your sector.</p>
+    </div>
+    <a href="contact.html" class="btn solid">Request the full archive →</a>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>Positron Architects</h4>
+        <p>Architects, Designers &amp; Planners practising across Mumbai &amp; Thane since 1993 — industrial, residential and institutional work built on engineering-grade detailing.</p>
+      </div>
+      <div>
+        <h4>Studios</h4>
+        <a href="contact.html">Industrial Projects Division — Thane (W)</a>
+        <a href="contact.html">Urban Projects Division — Ghatkopar, Mumbai</a>
+      </div>
+      <div>
+        <h4>Direct</h4>
+        <a href="mailto:info@positronarchitects.net">info@positronarchitects.net</a>
+        <a href="careers.html">Careers at Positron</a>
+        <a href="projects.html">Project Index</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© Positron Architects, Designers, Planners</span>
+      <span>Thane &amp; Mumbai, India</span>
+    </div>
+  </div>
+</footer>
+<script src="assets/js/main.js"></script>
+<script>
+/* ===========================================================
+   PROJECT DATA
+   ===========================================================
+   - "photo": path to an image, e.g. "assets/img/projects/jsw-oxygen.jpg".
+     Put your project photos in an "assets/img/projects/" folder
+     and reference them here. Leave "" to keep the placeholder.
+   - "category": "industrial" | "itparks" | "residential"
+     (must match one of the three grid containers above)
+   - "description": shown in the detail pop-up — replace the
+     generic line with real project write-ups whenever you have them.
+   =========================================================== */
+var PROJECTS = [
+  // ---------------- INDUSTRIAL ----------------
+  { id:"p01", category:"industrial", tag:"Chemical", name:"Advanced Bio-Chemicals Ltd.", loc:"Nasik", area:"150,000 sq.ft", year:"1993–94", photo:"", description:"An early industrial commission for the practice — a chemical manufacturing facility delivered for Advanced Bio-Chemicals Ltd. in Nasik." },
+  { id:"p02", category:"industrial", tag:"Bio-tech", name:"Advanced Enzyme Technologies Ltd.", loc:"Industrial Division", area:"250,000 sq.ft", year:"2012–13", photo:"", description:"A large-scale bio-tech manufacturing facility for Advanced Enzyme Technologies, handled by the Industrial Projects Division." },
+  { id:"p03", category:"industrial", tag:"Chemical", name:"Esdee Paints Ltd.", loc:"Industrial Division", area:"50,000 sq.ft", year:"2004–05", photo:"", description:"Manufacturing facility designed and detailed for Esdee Paints Ltd." },
+  { id:"p04", category:"industrial", tag:"Engineering", name:"Parkson Graphics Pvt. Ltd.", loc:"Industrial Division", area:"60,000 sq.ft", year:"2008–09", photo:"", description:"Engineering-led industrial facility for Parkson Graphics Pvt. Ltd." },
+  { id:"p05", category:"industrial", tag:"Pharma", name:"Elder Pharmaceuticals Ltd.", loc:"Industrial Division", area:"100,000 sq.ft", year:"2007–08", photo:"", description:"Pharmaceutical manufacturing facility delivered for Elder Pharmaceuticals Ltd." },
+  { id:"p06", category:"industrial", tag:"IT / Engineering", name:"L&T Infotech Ltd.", loc:"Industrial Division", area:"102,900 sq.ft", year:"2005–06", photo:"", description:"An IT/engineering facility delivered for L&T Infotech Ltd. under the Industrial Projects Division." },
+  { id:"p07", category:"industrial", tag:"Precision", name:"Technova Imaging Systems Ltd.", loc:"Industrial Division", area:"35,000 sq.ft", year:"2006–07", photo:"", description:"Precision-engineering facility for Technova Imaging Systems Ltd." },
+  { id:"p08", category:"industrial", tag:"Engineering", name:"Balmer Lawrie & Co. Ltd.", loc:"Industrial Division", area:"171,050 sq.ft", year:"2013–14", photo:"", description:"Engineering facility for Balmer Lawrie & Co. Ltd., one of the larger industrial commissions on record." },
+  { id:"p09", category:"industrial", tag:"Precision", name:"Tatsuno India Pvt. Ltd.", loc:"Industrial Division", area:"25,000 sq.ft", year:"2012–13", photo:"", description:"Precision manufacturing facility for Tatsuno India Pvt. Ltd." },
+  { id:"p10", category:"industrial", tag:"Chemical · Expansion", name:"Lubrizol Ltd.", loc:"Industrial Division", area:"25,000 sq.ft", year:"2009–10", photo:"", description:"An expansion project for Lubrizol Ltd.'s existing chemical manufacturing facility." },
+  { id:"p11", category:"industrial", tag:"Automotive", name:"Hallmark Automotives Pvt. Ltd.", loc:"Industrial Division", area:"70,000 sq.ft", year:"1993–94", photo:"", description:"Automotive manufacturing facility for Hallmark Automotives Pvt. Ltd." },
+  { id:"p12", category:"industrial", tag:"Infrastructure", name:"Pratibha Industries Ltd.", loc:"Plot 215, Vijaypur Taluka, Wada, Thane", area:"284,500 sq.ft", year:"2012–13", photo:"", description:"A large infrastructure-manufacturing complex for Pratibha Industries Ltd. in Wada, Thane." },
+  { id:"p13", category:"industrial", tag:"Precision", name:"Lizer Technologies Ltd.", loc:"Industrial Division", area:"40,000 sq.ft", year:"2006–08", photo:"", description:"Precision-technology manufacturing facility for Lizer Technologies Ltd." },
+  { id:"p14", category:"industrial", tag:"Pharma", name:"Dr. Reddy's Laboratories Ltd.", loc:"Industrial Division", area:"35,000 sq.ft", year:"2004–05", photo:"", description:"Pharmaceutical facility delivered for Dr. Reddy's Laboratories Ltd." },
+  { id:"p15", category:"industrial", tag:"Pharma", name:"Sandoz Ltd.", loc:"Industrial Division", area:"25,000 sq.ft", year:"2004–05", photo:"", description:"Pharmaceutical manufacturing facility for Sandoz Ltd." },
+  { id:"p16", category:"industrial", tag:"Chemical", name:"Nocil Ltd.", loc:"Industrial Division", area:"10,000 sq.ft", year:"2005–06", photo:"", description:"Chemical manufacturing facility for Nocil Ltd." },
+  { id:"p17", category:"industrial", tag:"Electronics", name:"Alan Electronic Systems", loc:"Additional Ambernath MIDC", area:"19,610 sq.ft", year:"2015–17", photo:"", description:"Electronics manufacturing facility at Additional Ambernath MIDC for Alan Electronic Systems." },
+  { id:"p18", category:"industrial", tag:"Life Sciences", name:"Cogent Life Sciences Pvt. Ltd.", loc:"Industrial Division", area:"100,000 sq.ft", year:"2016–17", photo:"", description:"Life-sciences manufacturing facility for Cogent Life Sciences Pvt. Ltd." },
+  { id:"p19", category:"industrial", tag:"Chemical", name:"Kalpasutra Chemicals Pvt. Ltd.", loc:"Plot M-12, Additional Ambernath", area:"102,000 sq.ft", year:"2016–18", photo:"", description:"Chemical manufacturing facility at Additional Ambernath for Kalpasutra Chemicals Pvt. Ltd." },
+  { id:"p20", category:"industrial", tag:"Automotive", name:"Ceat Specialty Tyres Ltd.", loc:"Industrial Division", area:"350,000 sq.ft", year:"2016–18", photo:"", description:"One of the largest industrial commissions on record — a specialty tyre manufacturing facility for Ceat." },
+  { id:"p21", category:"industrial", tag:"Industrial", name:"Asmaco Industries Ltd.", loc:"Plot B-41, Wagle Estate, Thane", area:"—", year:"—", photo:"", description:"Industrial facility on Plot B-41, Wagle Estate, Thane, for Asmaco Industries Ltd." },
+  { id:"p22", category:"industrial", tag:"Industrial", name:"Connect Well", loc:"Plot B-4 & B-5, MIDC, Dombivli (E.)", area:"—", year:"—", photo:"", description:"Industrial facility at MIDC Dombivli (E.) for Connect Well." },
+  { id:"p23", category:"industrial", tag:"Industrial Gas", name:"JSW Oxygen Plant", loc:"Geetapuram, Dolvi, Taluka Pen, Raigad", area:"—", year:"—", photo:"", description:"An industrial-gas plant for JSW at Geetapuram, Dolvi — a process-heavy brief co-ordinated closely with specialist engineering consultants." },
+  { id:"p24", category:"industrial", tag:"Safety Equipment", name:"Bond Safety Belts", loc:"Industrial Division", area:"—", year:"—", photo:"", description:"Manufacturing facility for Bond Safety Belts." },
+  { id:"p25", category:"industrial", tag:"Industrial", name:"R.S. Enterprises", loc:"Plot 34, Ambernath", area:"—", year:"—", photo:"", description:"Industrial facility on Plot 34, Ambernath, for R.S. Enterprises." },
+  { id:"p26", category:"industrial", tag:"Industrial", name:"Abhi-Ani", loc:"Industrial Division", area:"—", year:"—", photo:"", description:"Industrial facility delivered under the Abhi-Ani commission." },
+  { id:"p27", category:"industrial", tag:"Specialty Manufacturing", name:"BKT", loc:"Industrial Division", area:"—", year:"—", photo:"", description:"Specialty manufacturing facility for BKT." },
+  { id:"p28", category:"industrial", tag:"Chemicals", name:"Noble Organics", loc:"Industrial Division", area:"—", year:"—", photo:"", description:"Chemical manufacturing facility for Noble Organics." },
+  { id:"p29", category:"industrial", tag:"Aerospace / Training", name:"Aero Space International — Integrated Simulator cum Training Complex", loc:"Village Bhilavle, Tal-Khalapur, Raigad", area:"—", year:"—", photo:"", description:"An integrated simulator-cum-training complex for Aero Space International in Khalapur, Raigad." },
+
+  // ---------------- IT PARKS & INSTITUTIONAL ----------------
+  { id:"p30", category:"itparks", tag:"Institutional", name:"MIDC Office Building, Mahape", loc:"Mahape, Navi Mumbai, MIDC", area:"117,215 sq.ft", year:"2013–15", photo:"", description:"A flagship institutional commission for MIDC — a rounded, terracotta-clad office building in Mahape, Navi Mumbai." },
+  { id:"p31", category:"itparks", tag:"IT Park", name:"WiFi IT Park, Wagle", loc:"Wagle Estate, Thane", area:"84,500 sq.ft", year:"2006–08", photo:"", description:"A glass-fronted IT park in Wagle Estate, Thane, with ground-floor retail." },
+  { id:"p32", category:"itparks", tag:"IT Park", name:"Flemingo IT Park", loc:"TTC Industrial Area, MIDC", area:"65,500 sq.ft", year:"2014–19", photo:"", description:"IT park development in the TTC Industrial Area, MIDC." },
+  { id:"p33", category:"itparks", tag:"IT Park", name:"Bhoomi Velocity IT Park", loc:"Wagle Estate, Thane", area:"88,050 sq.ft", year:"2004–05", photo:"", description:"A glass IT park in Wagle Estate, Thane, with ground-floor showroom space." },
+  { id:"p34", category:"itparks", tag:"IT Park", name:"Odyssey IT Park", loc:"MIDC Area", area:"93,450 sq.ft", year:"2005–06", photo:"", description:"IT park developed within the MIDC area." },
+  { id:"p35", category:"itparks", tag:"IT Park", name:"Tropical IT Park", loc:"MIDC Area", area:"65,000 sq.ft", year:"2017–19", photo:"", description:"IT park development in the MIDC area." },
+  { id:"p36", category:"itparks", tag:"IT Park", name:"Oriana IT Park", loc:"Wagle Industrial Area, MIDC", area:"140,000 sq.ft", year:"2016–19", photo:"", description:"A high-rise IT tower in Wagle Industrial Area, MIDC." },
+  { id:"p37", category:"itparks", tag:"Business Park", name:"United Business Park", loc:"MIDC Area", area:"40,000 sq.ft", year:"2014–15", photo:"", description:"Business park development within the MIDC area." },
+  { id:"p38", category:"itparks", tag:"IT Park", name:"Akash Dream Venture IT Park", loc:"MIDC Area", area:"45,000 sq.ft", year:"2017–19", photo:"", description:"IT park development within the MIDC area." },
+  { id:"p39", category:"itparks", tag:"IT Park", name:"Omega IT Park", loc:"Wagle Estate, Thane", area:"—", year:"—", photo:"", description:"A classically detailed IT park in Wagle Estate, Thane." },
+  { id:"p40", category:"itparks", tag:"IT Park", name:"Goma IT Park", loc:"Plot B-66, Wagle Estate, Thane", area:"—", year:"—", photo:"", description:"IT park on Plot B-66, Wagle Estate, Thane." },
+  { id:"p41", category:"itparks", tag:"Mixed Use", name:"Radix", loc:"Plot A-583, 'A' Block, Mhape", area:"—", year:"—", photo:"", description:"Mixed-use building on Plot A-583, Mhape." },
+  { id:"p42", category:"itparks", tag:"Cultural / Institutional", name:"Marathi Bhasha Bhawan", loc:"Airoli, Navi Mumbai", area:"—", year:"—", photo:"", description:"A cultural institution building in Airoli, Navi Mumbai, designed around a Marathi cultural motif." },
+  { id:"p43", category:"itparks", tag:"Public / Recreational", name:"Technopolis Convention Park", loc:"Pawane, Navi Mumbai", area:"—", year:"—", photo:"", description:"A landscape-led convention park concept for Pawane, Navi Mumbai." },
+  { id:"p44", category:"itparks", tag:"Mixed-use / Liaisoning", name:"Larsen & Toubro Infotech Ltd.", loc:"EL-200, MIDC Electronics Zone, Shil-Mahpe Rd, Navi Mumbai", area:"1,343,300 sq.ft", year:"2019 – ongoing", photo:"", description:"The largest project on record by built area — Positron acts as liaisoning architect for this 1.34M sq.ft L&T Infotech campus." },
+
+  // ---------------- RESIDENTIAL ----------------
+  { id:"p45", category:"residential", tag:"Residential Complex", name:"Residential Complex for MIDC", loc:"Wagle Industrial Area, MIDC", area:"213,400 sq.ft", year:"2016 – ongoing", photo:"", description:"A hexagonal-tower residential complex for MIDC, with a clubhouse, pool and volleyball court, in Wagle Industrial Area." },
+  { id:"p46", category:"residential", tag:"Tower", name:"Brindavan Terraces", loc:"Chembur", area:"—", year:"2016 – ongoing", photo:"", description:"A residential tower in Chembur, currently ongoing." },
+  { id:"p47", category:"residential", tag:"Tower", name:"Silvanto", loc:"Chembur", area:"—", year:"—", photo:"", description:"A classically detailed residential tower with retail at street level, in Chembur." },
+  { id:"p48", category:"residential", tag:"Twin Towers", name:"Safal Twins", loc:"Chembur, Mumbai", area:"—", year:"—", photo:"", description:"Twin residential towers with landscaped grounds and pool, in Chembur." },
+  { id:"p49", category:"residential", tag:"Apartments", name:"Udyog Sarthi", loc:"Khanda Colony, Plot 57, Panvel", area:"—", year:"—", photo:"", description:"Residential apartment building in Khanda Colony, Panvel." },
+  { id:"p50", category:"residential", tag:"Apartments", name:"MIDC Residential Quarters — Udyog Sarthi", loc:"Khanda Colony, Panvel", area:"104,755 sq.ft", year:"2022 – ongoing", photo:"", description:"MIDC residential quarters at Khanda Colony, Panvel — an ongoing commission." },
+  { id:"p51", category:"residential", tag:"Tower", name:"M.S. Swapna Purti Heights", loc:"Wagle, Thane", area:"—", year:"2016 – ongoing", photo:"", description:"A residential tower in Wagle, Thane, currently ongoing." },
+  { id:"p52", category:"residential", tag:"Tower", name:"Soumya", loc:"Chembur", area:"—", year:"—", photo:"", description:"Residential tower in Chembur." },
+  { id:"p53", category:"residential", tag:"Tower", name:"Solitaire", loc:"Chembur", area:"—", year:"—", photo:"", description:"Residential tower with ground-floor retail, in Chembur." },
+  { id:"p54", category:"residential", tag:"Apartments", name:"Emarald", loc:"Chembur, Mumbai", area:"—", year:"—", photo:"", description:"Classically detailed residential apartment building in Chembur." },
+  { id:"p55", category:"residential", tag:"Apartments", name:"Plot No. RL-91", loc:"Dombivli Industrial Area", area:"—", year:"—", photo:"", description:"Residential apartment building in Dombivli Industrial Area." },
+  { id:"p56", category:"residential", tag:"Township", name:"Miscellaneous Residential", loc:"Pawana", area:"—", year:"—", photo:"", description:"A residential township development in Pawana, built around a central courtyard and pool." }
+];
+
+var CATEGORY_GRID = {
+  industrial: "grid-industrial",
+  itparks: "grid-itparks",
+  residential: "grid-residential"
+};
+
+function cardHtml(p) {
+  var thumbInner = p.photo
+    ? '<img src="' + p.photo + '" alt="' + p.name + '">'
+    : '<div class="ph-icon">Photo coming soon</div>';
+  return (
+    '<div class="sheet" data-id="' + p.id + '">' +
+      '<div class="thumb">' + thumbInner + '</div>' +
+      '<div class="body">' +
+        '<div class="top-row"><span class="sheet-no">' + p.id.toUpperCase() + '</span><span class="tag">' + p.tag + '</span></div>' +
+        '<div class="name">' + p.name + '</div>' +
+        '<div class="loc">' + p.loc + '</div>' +
+        '<div class="view-more">View details <span class="arrow">→</span></div>' +
+        '<div class="meta"><span>' + p.area + '</span><span>' + p.year + '</span></div>' +
+      '</div>' +
+    '</div>'
+  );
+}
+
+function modalHtml(p) {
+  var mediaInner = p.photo
+    ? '<img src="' + p.photo + '" alt="' + p.name + '">'
+    : '<div class="ph-icon">Photo coming soon</div>';
+  return (
+    '<div class="modal-media">' + mediaInner + '</div>' +
+    '<div class="modal-body">' +
+      '<span class="sheet-no">' + p.tag.toUpperCase() + '</span>' +
+      '<h2>' + p.name + '</h2>' +
+      '<div class="modal-loc">' + p.loc + '</div>' +
+      '<div class="modal-meta-row">' +
+        '<div class="m"><span class="k">Area of construction</span><span class="v">' + p.area + '</span></div>' +
+        '<div class="m"><span class="k">Year of construction</span><span class="v">' + p.year + '</span></div>' +
+      '</div>' +
+      '<p class="modal-desc">' + p.description + '</p>' +
+    '</div>'
+  );
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  var byCategory = { industrial: [], itparks: [], residential: [] };
+  PROJECTS.forEach(function (p) { byCategory[p.category].push(p); });
+
+  Object.keys(CATEGORY_GRID).forEach(function (cat) {
+    var grid = document.getElementById(CATEGORY_GRID[cat]);
+    if (!grid) return;
+    grid.innerHTML = byCategory[cat].map(cardHtml).join("");
+    grid.querySelectorAll(".sheet").forEach(function (el, idx) {
+      el.addEventListener("click", function () {
+        window.openModal(modalHtml(byCategory[cat][idx]));
+      });
+    });
+  });
+});
+</script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — Positron Architects</title>
+<meta name="description" content="The Positron Architects project archive — industrial plants, IT parks, institutional buildings and residential work across Mumbai &amp; Thane.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+.cat-nav{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px;}
+.cat-nav a{font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;border:1px solid var(--stone);padding:9px 16px;color:var(--charcoal);border-radius:999px;}
+.cat-nav a:hover{border-color:var(--gold);color:var(--navy);}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav">
+    <a href="index.html" class="brand">
+      <span class="mark" aria-hidden="true"></span>
+      <span class="word">POSITRON<small>Architects · Designers · Planners</small></span>
+    </a>
+    <nav class="links" id="navlinks">
+      <a href="index.html">Home</a>
+      <a href="vision.html">Vision</a>
+      <a href="team.html">Our Team</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="services.html">Services</a>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<div class="page-head">
+  <div class="wrap">
+    <div class="eyebrow">Project Index — partial archive</div>
+    <h1>Forty-plus sheets, three decades.</h1>
+    <p class="lede">Click any project for more detail. Photos are placeholders until real images are added — see the comment in the page source for exactly where to drop them in.</p>
+    <div class="cat-nav">
+      <a href="#industrial">01 / Industrial</a>
+      <a href="#itparks">02 / IT Parks &amp; Institutional</a>
+      <a href="#residential">03 / Residential</a>
+    </div>
+  </div>
+</div>
+
+<section id="industrial">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Industrial Projects</h2>
+      <p class="desc">Bio-tech, pharmaceutical, chemical, automotive and precision-engineering facilities — SBU 01, Thane.</p>
+    </div>
+    <div class="sheet-grid" id="grid-industrial"></div>
+  </div>
+</section>
+
+<section id="itparks" style="border-top:1px solid var(--line);background:var(--concrete);">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>IT Parks &amp; Institutional</h2>
+      <p class="desc">MIDC offices, IT parks and public buildings across Navi Mumbai &amp; Thane.</p>
+    </div>
+    <div class="sheet-grid" id="grid-itparks"></div>
+  </div>
+</section>
+
+<section id="residential">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Residential</h2>
+      <p class="desc">Individual houses, apartment towers and large residential complexes — SBU 02, Ghatkopar.</p>
+    </div>
+    <div class="sheet-grid" id="grid-residential"></div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap" style="display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;">
+    <div>
+      <h2>This is a partial archive.</h2>
+      <p>Ask us for the complete project record relevant to your sector.</p>
+    </div>
+    <a href="contact.html" class="btn solid">Request the full archive →</a>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>Positron Architects</h4>
+        <p>Architects, Designers &amp; Planners practising across Mumbai &amp; Thane since 1993 — industrial, residential and institutional work built on engineering-grade detailing.</p>
+      </div>
+      <div>
+        <h4>Studios</h4>
+        <a href="contact.html">Industrial Projects Division — Thane (W)</a>
+        <a href="contact.html">Urban Projects Division — Ghatkopar, Mumbai</a>
+      </div>
+      <div>
+        <h4>Direct</h4>
+        <a href="mailto:info@positronarchitects.net">info@positronarchitects.net</a>
+        <a href="careers.html">Careers at Positron</a>
+        <a href="projects.html">Project Index</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© Positron Architects, Designers, Planners</span>
+      <span>Thane &amp; Mumbai, India</span>
+    </div>
+  </div>
+</footer>
+<script src="assets/js/main.js"></script>
+<script>
+/* ===========================================================
+   PROJECT DATA
+   ===========================================================
+   - "photo": path to an image, e.g. "assets/img/projects/jsw-oxygen.jpg".
+     Put your project photos in an "assets/img/projects/" folder
+     and reference them here. Leave "" to keep the placeholder.
+   - "category": "industrial" | "itparks" | "residential"
+     (must match one of the three grid containers above)
+   - "description": shown in the detail pop-up — replace the
+     generic line with real project write-ups whenever you have them.
+   =========================================================== */
+var PROJECTS = [
+  // ---------------- INDUSTRIAL ----------------
+  { id:"p01", category:"industrial", tag:"Chemical", name:"Advanced Bio-Chemicals Ltd.", loc:"Nasik", area:"150,000 sq.ft", year:"1993–94", photo:"", description:"An early industrial commission for the practice — a chemical manufacturing facility delivered for Advanced Bio-Chemicals Ltd. in Nasik." },
+  { id:"p02", category:"industrial", tag:"Bio-tech", name:"Advanced Enzyme Technologies Ltd.", loc:"Industrial Division", area:"250,000 sq.ft", year:"2012–13", photo:"", description:"A large-scale bio-tech manufacturing facility for Advanced Enzyme Technologies, handled by the Industrial Projects Division." },
+  { id:"p03", category:"industrial", tag:"Chemical", name:"Esdee Paints Ltd.", loc:"Industrial Division", area:"50,000 sq.ft", year:"2004–05", photo:"", description:"Manufacturing facility designed and detailed for Esdee Paints Ltd." },
+  { id:"p04", category:"industrial", tag:"Engineering", name:"Parkson Graphics Pvt. Ltd.", loc:"Industrial Division", area:"60,000 sq.ft", year:"2008–09", photo:"", description:"Engineering-led industrial facility for Parkson Graphics Pvt. Ltd." },
+  { id:"p05", category:"industrial", tag:"Pharma", name:"Elder Pharmaceuticals Ltd.", loc:"Industrial Division", area:"100,000 sq.ft", year:"2007–08", photo:"", description:"Pharmaceutical manufacturing facility delivered for Elder Pharmaceuticals Ltd." },
+  { id:"p06", category:"industrial", tag:"IT / Engineering", name:"L&T Infotech Ltd.", loc:"Industrial Division", area:"102,900 sq.ft", year:"2005–06", photo:"", description:"An IT/engineering facility delivered for L&T Infotech Ltd. under the Industrial Projects Division." },
+  { id:"p07", category:"industrial", tag:"Precision", name:"Technova Imaging Systems Ltd.", loc:"Industrial Division", area:"35,000 sq.ft", year:"2006–07", photo:"", description:"Precision-engineering facility for Technova Imaging Systems Ltd." },
+  { id:"p08", category:"industrial", tag:"Engineering", name:"Balmer Lawrie & Co. Ltd.", loc:"Industrial Division", area:"171,050 sq.ft", year:"2013–14", photo:"", description:"Engineering facility for Balmer Lawrie & Co. Ltd., one of the larger industrial commissions on record." },
+  { id:"p09", category:"industrial", tag:"Precision", name:"Tatsuno India Pvt. Ltd.", loc:"Industrial Division", area:"25,000 sq.ft", year:"2012–13", photo:"", description:"Precision manufacturing facility for Tatsuno India Pvt. Ltd." },
+  { id:"p10", category:"industrial", tag:"Chemical · Expansion", name:"Lubrizol Ltd.", loc:"Industrial Division", area:"25,000 sq.ft", year:"2009–10", photo:"", description:"An expansion project for Lubrizol Ltd.'s existing chemical manufacturing facility." },
+  { id:"p11", category:"industrial", tag:"Automotive", name:"Hallmark Automotives Pvt. Ltd.", loc:"Industrial Division", area:"70,000 sq.ft", year:"1993–94", photo:"", description:"Automotive manufacturing facility for Hallmark Automotives Pvt. Ltd." },
+  { id:"p12", category:"industrial", tag:"Infrastructure", name:"Pratibha Industries Ltd.", loc:"Plot 215, Vijaypur Taluka, Wada, Thane", area:"284,500 sq.ft", year:"2012–13", photo:"", description:"A large infrastructure-manufacturing complex for Pratibha Industries Ltd. in Wada, Thane." },
+  { id:"p13", category:"industrial", tag:"Precision", name:"Lizer Technologies Ltd.", loc:"Industrial Division", area:"40,000 sq.ft", year:"2006–08", photo:"", description:"Precision-technology manufacturing facility for Lizer Technologies Ltd." },
+  { id:"p14", category:"industrial", tag:"Pharma", name:"Dr. Reddy's Laboratories Ltd.", loc:"Industrial Division", area:"35,000 sq.ft", year:"2004–05", photo:"", description:"Pharmaceutical facility delivered for Dr. Reddy's Laboratories Ltd." },
+  { id:"p15", category:"industrial", tag:"Pharma", name:"Sandoz Ltd.", loc:"Industrial Division", area:"25,000 sq.ft", year:"2004–05", photo:"", description:"Pharmaceutical manufacturing facility for Sandoz Ltd." },
+  { id:"p16", category:"industrial", tag:"Chemical", name:"Nocil Ltd.", loc:"Industrial Division", area:"10,000 sq.ft", year:"2005–06", photo:"", description:"Chemical manufacturing facility for Nocil Ltd." },
+  { id:"p17", category:"industrial", tag:"Electronics", name:"Alan Electronic Systems", loc:"Additional Ambernath MIDC", area:"19,610 sq.ft", year:"2015–17", photo:"", description:"Electronics manufacturing facility at Additional Ambernath MIDC for Alan Electronic Systems." },
+  { id:"p18", category:"industrial", tag:"Life Sciences", name:"Cogent Life Sciences Pvt. Ltd.", loc:"Industrial Division", area:"100,000 sq.ft", year:"2016–17", photo:"", description:"Life-sciences manufacturing facility for Cogent Life Sciences Pvt. Ltd." },
+  { id:"p19", category:"industrial", tag:"Chemical", name:"Kalpasutra Chemicals Pvt. Ltd.", loc:"Plot M-12, Additional Ambernath", area:"102,000 sq.ft", year:"2016–18", photo:"", description:"Chemical manufacturing facility at Additional Ambernath for Kalpasutra Chemicals Pvt. Ltd." },
+  { id:"p20", category:"industrial", tag:"Automotive", name:"Ceat Specialty Tyres Ltd.", loc:"Industrial Division", area:"350,000 sq.ft", year:"2016–18", photo:"", description:"One of the largest industrial commissions on record — a specialty tyre manufacturing facility for Ceat." },
+  { id:"p21", category:"industrial", tag:"Industrial", name:"Asmaco Industries Ltd.", loc:"Plot B-41, Wagle Estate, Thane", area:"—", year:"—", photo:"", description:"Industrial facility on Plot B-41, Wagle Estate, Thane, for Asmaco Industries Ltd." },
+  { id:"p22", category:"industrial", tag:"Industrial", name:"Connect Well", loc:"Plot B-4 & B-5, MIDC, Dombivli (E.)", area:"—", year:"—", photo:"", description:"Industrial facility at MIDC Dombivli (E.) for Connect Well." },
+  { id:"p23", category:"industrial", tag:"Industrial Gas", name:"JSW Oxygen Plant", loc:"Geetapuram, Dolvi, Taluka Pen, Raigad", area:"—", year:"—", photo:"", description:"An industrial-gas plant for JSW at Geetapuram, Dolvi — a process-heavy brief co-ordinated closely with specialist engineering consultants." },
+  { id:"p24", category:"industrial", tag:"Safety Equipment", name:"Bond Safety Belts", loc:"Industrial Division", area:"—", year:"—", photo:"", description:"Manufacturing facility for Bond Safety Belts." },
+  { id:"p25", category:"industrial", tag:"Industrial", name:"R.S. Enterprises", loc:"Plot 34, Ambernath", area:"—", year:"—", photo:"", description:"Industrial facility on Plot 34, Ambernath, for R.S. Enterprises." },
+  { id:"p26", category:"industrial", tag:"Industrial", name:"Abhi-Ani", loc:"Industrial Division", area:"—", year:"—", photo:"", description:"Industrial facility delivered under the Abhi-Ani commission." },
+  { id:"p27", category:"industrial", tag:"Specialty Manufacturing", name:"BKT", loc:"Industrial Division", area:"—", year:"—", photo:"", description:"Specialty manufacturing facility for BKT." },
+  { id:"p28", category:"industrial", tag:"Chemicals", name:"Noble Organics", loc:"Industrial Division", area:"—", year:"—", photo:"", description:"Chemical manufacturing facility for Noble Organics." },
+  { id:"p29", category:"industrial", tag:"Aerospace / Training", name:"Aero Space International — Integrated Simulator cum Training Complex", loc:"Village Bhilavle, Tal-Khalapur, Raigad", area:"—", year:"—", photo:"", description:"An integrated simulator-cum-training complex for Aero Space International in Khalapur, Raigad." },
+
+  // ---------------- IT PARKS & INSTITUTIONAL ----------------
+  { id:"p30", category:"itparks", tag:"Institutional", name:"MIDC Office Building, Mahape", loc:"Mahape, Navi Mumbai, MIDC", area:"117,215 sq.ft", year:"2013–15", photo:"", description:"A flagship institutional commission for MIDC — a rounded, terracotta-clad office building in Mahape, Navi Mumbai." },
+  { id:"p31", category:"itparks", tag:"IT Park", name:"WiFi IT Park, Wagle", loc:"Wagle Estate, Thane", area:"84,500 sq.ft", year:"2006–08", photo:"", description:"A glass-fronted IT park in Wagle Estate, Thane, with ground-floor retail." },
+  { id:"p32", category:"itparks", tag:"IT Park", name:"Flemingo IT Park", loc:"TTC Industrial Area, MIDC", area:"65,500 sq.ft", year:"2014–19", photo:"", description:"IT park development in the TTC Industrial Area, MIDC." },
+  { id:"p33", category:"itparks", tag:"IT Park", name:"Bhoomi Velocity IT Park", loc:"Wagle Estate, Thane", area:"88,050 sq.ft", year:"2004–05", photo:"", description:"A glass IT park in Wagle Estate, Thane, with ground-floor showroom space." },
+  { id:"p34", category:"itparks", tag:"IT Park", name:"Odyssey IT Park", loc:"MIDC Area", area:"93,450 sq.ft", year:"2005–06", photo:"", description:"IT park developed within the MIDC area." },
+  { id:"p35", category:"itparks", tag:"IT Park", name:"Tropical IT Park", loc:"MIDC Area", area:"65,000 sq.ft", year:"2017–19", photo:"", description:"IT park development in the MIDC area." },
+  { id:"p36", category:"itparks", tag:"IT Park", name:"Oriana IT Park", loc:"Wagle Industrial Area, MIDC", area:"140,000 sq.ft", year:"2016–19", photo:"", description:"A high-rise IT tower in Wagle Industrial Area, MIDC." },
+  { id:"p37", category:"itparks", tag:"Business Park", name:"United Business Park", loc:"MIDC Area", area:"40,000 sq.ft", year:"2014–15", photo:"", description:"Business park development within the MIDC area." },
+  { id:"p38", category:"itparks", tag:"IT Park", name:"Akash Dream Venture IT Park", loc:"MIDC Area", area:"45,000 sq.ft", year:"2017–19", photo:"", description:"IT park development within the MIDC area." },
+  { id:"p39", category:"itparks", tag:"IT Park", name:"Omega IT Park", loc:"Wagle Estate, Thane", area:"—", year:"—", photo:"", description:"A classically detailed IT park in Wagle Estate, Thane." },
+  { id:"p40", category:"itparks", tag:"IT Park", name:"Goma IT Park", loc:"Plot B-66, Wagle Estate, Thane", area:"—", year:"—", photo:"", description:"IT park on Plot B-66, Wagle Estate, Thane." },
+  { id:"p41", category:"itparks", tag:"Mixed Use", name:"Radix", loc:"Plot A-583, 'A' Block, Mhape", area:"—", year:"—", photo:"", description:"Mixed-use building on Plot A-583, Mhape." },
+  { id:"p42", category:"itparks", tag:"Cultural / Institutional", name:"Marathi Bhasha Bhawan", loc:"Airoli, Navi Mumbai", area:"—", year:"—", photo:"", description:"A cultural institution building in Airoli, Navi Mumbai, designed around a Marathi cultural motif." },
+  { id:"p43", category:"itparks", tag:"Public / Recreational", name:"Technopolis Convention Park", loc:"Pawane, Navi Mumbai", area:"—", year:"—", photo:"", description:"A landscape-led convention park concept for Pawane, Navi Mumbai." },
+  { id:"p44", category:"itparks", tag:"Mixed-use / Liaisoning", name:"Larsen & Toubro Infotech Ltd.", loc:"EL-200, MIDC Electronics Zone, Shil-Mahpe Rd, Navi Mumbai", area:"1,343,300 sq.ft", year:"2019 – ongoing", photo:"", description:"The largest project on record by built area — Positron acts as liaisoning architect for this 1.34M sq.ft L&T Infotech campus." },
+
+  // ---------------- RESIDENTIAL ----------------
+  { id:"p45", category:"residential", tag:"Residential Complex", name:"Residential Complex for MIDC", loc:"Wagle Industrial Area, MIDC", area:"213,400 sq.ft", year:"2016 – ongoing", photo:"", description:"A hexagonal-tower residential complex for MIDC, with a clubhouse, pool and volleyball court, in Wagle Industrial Area." },
+  { id:"p46", category:"residential", tag:"Tower", name:"Brindavan Terraces", loc:"Chembur", area:"—", year:"2016 – ongoing", photo:"", description:"A residential tower in Chembur, currently ongoing." },
+  { id:"p47", category:"residential", tag:"Tower", name:"Silvanto", loc:"Chembur", area:"—", year:"—", photo:"", description:"A classically detailed residential tower with retail at street level, in Chembur." },
+  { id:"p48", category:"residential", tag:"Twin Towers", name:"Safal Twins", loc:"Chembur, Mumbai", area:"—", year:"—", photo:"", description:"Twin residential towers with landscaped grounds and pool, in Chembur." },
+  { id:"p49", category:"residential", tag:"Apartments", name:"Udyog Sarthi", loc:"Khanda Colony, Plot 57, Panvel", area:"—", year:"—", photo:"", description:"Residential apartment building in Khanda Colony, Panvel." },
+  { id:"p50", category:"residential", tag:"Apartments", name:"MIDC Residential Quarters — Udyog Sarthi", loc:"Khanda Colony, Panvel", area:"104,755 sq.ft", year:"2022 – ongoing", photo:"", description:"MIDC residential quarters at Khanda Colony, Panvel — an ongoing commission." },
+  { id:"p51", category:"residential", tag:"Tower", name:"M.S. Swapna Purti Heights", loc:"Wagle, Thane", area:"—", year:"2016 – ongoing", photo:"", description:"A residential tower in Wagle, Thane, currently ongoing." },
+  { id:"p52", category:"residential", tag:"Tower", name:"Soumya", loc:"Chembur", area:"—", year:"—", photo:"", description:"Residential tower in Chembur." },
+  { id:"p53", category:"residential", tag:"Tower", name:"Solitaire", loc:"Chembur", area:"—", year:"—", photo:"", description:"Residential tower with ground-floor retail, in Chembur." },
+  { id:"p54", category:"residential", tag:"Apartments", name:"Emarald", loc:"Chembur, Mumbai", area:"—", year:"—", photo:"", description:"Classically detailed residential apartment building in Chembur." },
+  { id:"p55", category:"residential", tag:"Apartments", name:"Plot No. RL-91", loc:"Dombivli Industrial Area", area:"—", year:"—", photo:"", description:"Residential apartment building in Dombivli Industrial Area." },
+  { id:"p56", category:"residential", tag:"Township", name:"Miscellaneous Residential", loc:"Pawana", area:"—", year:"—", photo:"", description:"A residential township development in Pawana, built around a central courtyard and pool." }
+];
+
+var CATEGORY_GRID = {
+  industrial: "grid-industrial",
+  itparks: "grid-itparks",
+  residential: "grid-residential"
+};
+
+function cardHtml(p) {
+  var thumbInner = p.photo
+    ? '<img src="' + p.photo + '" alt="' + p.name + '">'
+    : '<div class="ph-icon">Photo coming soon</div>';
+  return (
+    '<div class="sheet" data-id="' + p.id + '">' +
+      '<div class="thumb">' + thumbInner + '</div>' +
+      '<div class="body">' +
+        '<div class="top-row"><span class="sheet-no">' + p.id.toUpperCase() + '</span><span class="tag">' + p.tag + '</span></div>' +
+        '<div class="name">' + p.name + '</div>' +
+        '<div class="loc">' + p.loc + '</div>' +
+        '<div class="view-more">View details <span class="arrow">→</span></div>' +
+        '<div class="meta"><span>' + p.area + '</span><span>' + p.year + '</span></div>' +
+      '</div>' +
+    '</div>'
+  );
+}
+
+function modalHtml(p) {
+  var mediaInner = p.photo
+    ? '<img src="' + p.photo + '" alt="' + p.name + '">'
+    : '<div class="ph-icon">Photo coming soon</div>';
+  return (
+    '<div class="modal-media">' + mediaInner + '</div>' +
+    '<div class="modal-body">' +
+      '<span class="sheet-no">' + p.tag.toUpperCase() + '</span>' +
+      '<h2>' + p.name + '</h2>' +
+      '<div class="modal-loc">' + p.loc + '</div>' +
+      '<div class="modal-meta-row">' +
+        '<div class="m"><span class="k">Area of construction</span><span class="v">' + p.area + '</span></div>' +
+        '<div class="m"><span class="k">Year of construction</span><span class="v">' + p.year + '</span></div>' +
+      '</div>' +
+      '<p class="modal-desc">' + p.description + '</p>' +
+    '</div>'
+  );
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  var byCategory = { industrial: [], itparks: [], residential: [] };
+  PROJECTS.forEach(function (p) { byCategory[p.category].push(p); });
+
+  Object.keys(CATEGORY_GRID).forEach(function (cat) {
+    var grid = document.getElementById(CATEGORY_GRID[cat]);
+    if (!grid) return;
+    grid.innerHTML = byCategory[cat].map(cardHtml).join("");
+    grid.querySelectorAll(".sheet").forEach(function (el, idx) {
+      el.addEventListener("click", function () {
+        window.openModal(modalHtml(byCategory[cat][idx]));
+      });
+    });
+  });
+});
+</script>
+</body>
+</html>

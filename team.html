@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Team — Positron Architects</title>
+<meta name="description" content="The founding architects of Positron — Ar. S.N. Iyer, Ar. Rakesh S. Chaumal and Ar. N.C. Daftary.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav">
+    <a href="index.html" class="brand">
+      <span class="mark" aria-hidden="true"></span>
+      <span class="word">POSITRON<small>Architects · Designers · Planners</small></span>
+    </a>
+    <nav class="links" id="navlinks">
+      <a href="index.html">Home</a>
+      <a href="vision.html">Vision</a>
+      <a href="team.html" class="active">Our Team</a>
+      <a href="projects.html">Projects</a>
+      <a href="services.html">Services</a>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<div class="page-head">
+  <div class="wrap">
+    <div class="eyebrow">Founded by three architects</div>
+    <h1>The people who sign the drawings.</h1>
+    <p class="lede">Click on a profile for the full background. Replace the placeholder photos below with real ones any time — see the comment in the code for exactly where.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="team-grid" id="team-grid">
+      <!-- Cards are rendered by the script at the bottom of this file,
+           driven by the TEAM array. Edit names, bios and image paths there. -->
+    </div>
+  </div>
+</section>
+
+<section style="border-top:1px solid var(--line);background:var(--concrete);">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Design consultancy structure</h2>
+      <p class="desc">Two registered business units, each built around its own client base.</p>
+    </div>
+    <div class="two-col">
+      <div>
+        <span class="sheet-no">SBU · 01</span>
+        <h3 style="margin-top:10px;font-size:22px;color:var(--navy);">Industrial Projects Division</h3>
+        <p style="margin-top:10px;color:var(--charcoal);font-size:14.5px;">302, Sambhav IT Park, P. No. B-5, Wagle Industrial Area, Thane (W) 400 604.<br>Tel: 261133800 · Fax: 25827654</p>
+      </div>
+      <div>
+        <span class="sheet-no">SBU · 02</span>
+        <h3 style="margin-top:10px;font-size:22px;color:var(--navy);">Urban Projects Division</h3>
+        <p style="margin-top:10px;color:var(--charcoal);font-size:14.5px;">434–435, Kailash Plaza, Vallabh Baug Lane, Ghatkopar (E), Mumbai-75.<br>Telefax: 2510 0401</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap" style="display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;">
+    <div>
+      <h2>Want to work alongside this team?</h2>
+      <p>We're usually looking for architects, draughtspersons and site engineers.</p>
+    </div>
+    <a href="careers.html" class="btn solid">View open roles →</a>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>Positron Architects</h4>
+        <p>Architects, Designers &amp; Planners practising across Mumbai &amp; Thane since 1993 — industrial, residential and institutional work built on engineering-grade detailing.</p>
+      </div>
+      <div>
+        <h4>Studios</h4>
+        <a href="contact.html">Industrial Projects Division — Thane (W)</a>
+        <a href="contact.html">Urban Projects Division — Ghatkopar, Mumbai</a>
+      </div>
+      <div>
+        <h4>Direct</h4>
+        <a href="mailto:info@positronarchitects.net">info@positronarchitects.net</a>
+        <a href="careers.html">Careers at Positron</a>
+        <a href="projects.html">Project Index</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© Positron Architects, Designers, Planners</span>
+      <span>Thane &amp; Mumbai, India</span>
+    </div>
+  </div>
+</footer>
+<script src="assets/js/main.js"></script>
+<script>
+/* ===========================================================
+   TEAM DATA
+   ===========================================================
+   - "photo": path to an image file. Put your photos in an
+     "assets/img/team/" folder and point to them here, e.g.
+     "assets/img/team/iyer.jpg". Leave as "" to keep the
+     placeholder shown on the card.
+   - "bio": shown inside the detail pop-up when the card is
+     clicked. Replace with the real biography text.
+   =========================================================== */
+var TEAM = [
+  {
+    id: "iyer",
+    name: "Ar. S. N. Iyer",
+    role: "Heads Industrial Projects Division",
+    years: "31 years in practice",
+    photo: "", /* e.g. "assets/img/team/iyer.jpg" */
+    qualification: "Graduate Architect, Post-Graduate in Town Planning",
+    strengths: "Architectural planning & detailing, project planning and management",
+    bio: "Graduate architect with post-graduate qualifications in town planning. 31 years of experience with architectural planning and detailing, project planning and management as core strengths. Leads the Industrial Projects Division out of Sambhav IT Park, Thane.",
+    portfolio: [
+      "Bio-tech industries",
+      "Pharmaceutical industries",
+      "Chemical industries",
+      "Hi-tech & precision industries",
+      "Engineering industries",
+      "IT parks",
+      "Commercial interiors"
+    ]
+  },
+  {
+    id: "chaumal",
+    name: "Ar. R. S. Chaumal",
+    role: "Heads Residential Projects Division",
+    years: "31 years in practice",
+    photo: "", /* e.g. "assets/img/team/chaumal.jpg" */
+    qualification: "Graduate Architect",
+    strengths: "Architectural planning & detailing, construction management",
+    bio: "Graduate architect with 31 years of experience in architectural planning and detailing, with construction management as a core strength. Leads the Urban Projects Division out of Kailash Plaza, Ghatkopar.",
+    portfolio: [
+      "Individual houses",
+      "Residential apartments",
+      "Residential complexes",
+      "Public buildings",
+      "Commercial interiors"
+    ]
+  },
+  {
+    id: "daftary",
+    name: "Ar. N. C. Daftary",
+    role: "Handles statutory liaison",
+    years: "28 years in practice",
+    photo: "", /* e.g. "assets/img/team/daftary.jpg" */
+    qualification: "Graduate Architect",
+    strengths: "Construction management, liaison with statutory authorities",
+    bio: "Graduate architect with 28 years of experience in construction management and liaison with statutory authorities as a core strength — keeping every Positron project moving cleanly through approvals.",
+    portfolio: [
+      "Municipal Corporation of Thane",
+      "CIDCO",
+      "M.I.D.C.",
+      "Department of Health & Safety",
+      "Navi Mumbai Municipal Corporation"
+    ]
+  }
+];
+
+function teamCardHtml(m) {
+  var photoInner = m.photo
+    ? '<img src="' + m.photo + '" alt="' + m.name + '">'
+    : '<div class="ph-icon">Photo coming soon</div>';
+  return (
+    '<div class="member-card" data-id="' + m.id + '">' +
+      '<div class="photo">' + photoInner + '</div>' +
+      '<div class="body">' +
+        '<span class="role">' + m.role + '</span>' +
+        '<h3>' + m.name + '</h3>' +
+        '<span class="yrs">' + m.years + '</span>' +
+        '<div class="view-more">View profile <span class="arrow">→</span></div>' +
+      '</div>' +
+    '</div>'
+  );
+}
+
+function teamModalHtml(m) {
+  var mediaInner = m.photo
+    ? '<img src="' + m.photo + '" alt="' + m.name + '">'
+    : '<div class="ph-icon">Photo coming soon</div>';
+  var list = m.portfolio.map(function (p) { return "<li>" + p + "</li>"; }).join("");
+  return (
+    '<div class="modal-media is-team">' + mediaInner + '</div>' +
+    '<div class="modal-body is-team">' +
+      '<span class="sheet-no">' + m.role.toUpperCase() + '</span>' +
+      '<h2>' + m.name + '</h2>' +
+      '<div class="modal-loc">' + m.years + '</div>' +
+      '<div class="modal-meta-row">' +
+        '<div class="m"><span class="k">Qualification</span><span class="v">' + m.qualification + '</span></div>' +
+        '<div class="m"><span class="k">Core strengths</span><span class="v">' + m.strengths + '</span></div>' +
+      '</div>' +
+      '<p class="modal-desc">' + m.bio + '</p>' +
+      '<ul class="modal-list">' + list + '</ul>' +
+    '</div>'
+  );
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  var grid = document.getElementById("team-grid");
+  grid.innerHTML = TEAM.map(teamCardHtml).join("");
+  grid.querySelectorAll(".member-card").forEach(function (el, idx) {
+    el.addEventListener("click", function () {
+      window.openModal(teamModalHtml(TEAM[idx]));
+    });
+  });
+});
+</script>
+</body>
+</html>
