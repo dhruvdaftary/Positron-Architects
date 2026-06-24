@@ -60,51 +60,61 @@ p{margin:0;}
   color:var(--tan);
 }
 
-/* ---------- Header / nav ---------- */
-header.site{
-  position:sticky;top:0;z-index:50;
-  background:rgba(255,255,255,0.9);
-  backdrop-filter:blur(8px);
-  border-bottom:1px solid var(--line);
+/* ---------- Header / nav — REPLACE the existing block ---------- */
+header.site {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+  /* Required so the absolute-positioned nav panel is anchored here */
+  overflow: visible;
 }
-.nav{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:18px 0;
-}
-.brand{display:flex;align-items:center;gap:10px;}
-.brand img.logo{height:40px;width:auto;display:block;}
-.brand .mark{
-  width:28px;height:28px;flex-shrink:0;border-radius:7px;
-  background:linear-gradient(135deg,var(--navy) 50%, var(--gold) 50%);
-}
-.brand .word{font-family:var(--display);font-weight:600;font-size:19px;letter-spacing:.01em;color:var(--navy);}
-.brand .word small{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;color:var(--charcoal);text-transform:uppercase;font-weight:400;margin-top:1px;}
 
-nav.links{display:flex;gap:30px;font-size:14px;}
-nav.links a{
-  position:relative;padding:4px 0;color:var(--charcoal);font-weight:500;
-  transition:color .15s ease;
-}
-nav.links a:hover{color:var(--navy);}
-nav.links a.active{color:var(--navy);}
-nav.links a.active::after{
-  content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--gold);border-radius:2px;
-}
-.nav-toggle{display:none;background:none;border:0;cursor:pointer;color:var(--navy);font-size:22px;line-height:1;padding:4px;z-index:60;}
-@media (max-width:780px){
-  nav.links{
-    position:fixed;top:var(--header-h, 72px);left:0;right:0;bottom:0;background:var(--paper);
-    flex-direction:column;gap:0;padding:8px 24px;
-    transform:translateY(-12px);opacity:0;visibility:hidden;
-    transition:transform .22s ease, opacity .22s ease, visibility .22s ease;
-    border-top:1px solid var(--line);z-index:55;
-    overflow-y:auto;
+@media (max-width: 780px) {
+  header.site {
+    /* Create a positioning context for the dropdown */
+    position: sticky;
   }
-  nav.links.open{transform:translateY(0);opacity:1;visibility:visible;}
-  nav.links a{padding:16px 0;border-bottom:1px solid var(--line-soft);font-size:16px;}
-  .nav-toggle{display:block;}
+
+  nav.links {
+    /* Anchor to the bottom of the header, not the viewport */
+    position: absolute;
+    top: 100%;          /* flush below the header — no JS measurement needed */
+    left: 0;
+    right: 0;
+    /* Full-screen height minus the header */
+    height: calc(100dvh - 100%);
+    background: var(--paper);
+    flex-direction: column;
+    gap: 0;
+    padding: 8px 24px;
+    /* Hidden state */
+    transform: translateY(-12px);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform .22s ease, opacity .22s ease, visibility .22s ease;
+    border-top: 1px solid var(--line);
+    /* Sit above page content but below modals */
+    z-index: 55;
+    overflow-y: auto;
+  }
+
+  nav.links.open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  nav.links a {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line-soft);
+    font-size: 16px;
+  }
+
+  .nav-toggle { display: block; }
 }
-body.nav-locked{overflow:hidden;}
+
+body.nav-locked { overflow: hidden; }
 
 /* ---------- Buttons ---------- */
 .btn{
