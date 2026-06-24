@@ -1,32 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
 
   /* ---------- Mobile nav toggle ---------- */
-  var header = document.querySelector("header.site");
   var toggle = document.querySelector(".nav-toggle");
   var links  = document.querySelector("nav.links");
 
-  /* Measure the header and write the CSS custom property so the
-     fixed nav panel starts exactly where the header ends.          */
-  function setHeaderHeightVar() {
-    if (!header) return;
-    var h = header.getBoundingClientRect().height;
-    document.documentElement.style.setProperty("--header-h", h + "px");
-  }
-
-  /* Run once immediately so the variable exists before any paint.  */
-  setHeaderHeightVar();
-
-  /* Re-measure after fonts / images finish loading – these inflate
-     the header height and would leave a gap if we only measured early. */
-  window.addEventListener("load", setHeaderHeightVar);
-  window.addEventListener("resize", setHeaderHeightVar);
-  window.addEventListener("orientationchange", function () {
-    /* Small delay: the viewport dims aren't final at the moment the
-       event fires on iOS – wait one frame before measuring.          */
-    requestAnimationFrame(setHeaderHeightVar);
-  });
-
-  /* ---- open / close helpers ---- */
   function isOpen() {
     return links && links.classList.contains("open");
   }
@@ -43,9 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function openNav() {
     if (!links) return;
-    /* Re-measure right before opening so the panel sits flush below
-       the header even if its height changed since page load.         */
-    setHeaderHeightVar();
     links.classList.add("open");
     document.body.classList.add("nav-locked");
     if (toggle) {
@@ -56,41 +30,35 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (toggle && links) {
 
-    /* Toggle on button click */
     toggle.addEventListener("click", function (e) {
-      /* Stop the click reaching the document listener below */
       e.stopPropagation();
       isOpen() ? closeNav() : openNav();
     });
 
-    /* Tapping a nav link navigates AND closes the panel */
+    /* Tapping a nav link navigates and closes the panel */
     links.querySelectorAll("a").forEach(function (a) {
       a.addEventListener("click", closeNav);
     });
 
-    /* Tapping the dimmed page area (outside the nav panel) closes it */
+    /* Tap outside to close */
     document.addEventListener("click", function (e) {
       if (isOpen() && !links.contains(e.target) && e.target !== toggle) {
         closeNav();
       }
     });
 
-    /* Escape key closes the panel */
+    /* Escape key */
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && isOpen()) closeNav();
     });
 
-    /* Snapping back to desktop width shouldn't leave the panel open
-       or the scroll-lock engaged.                                    */
+    /* Snap back to desktop — ensure clean state */
     window.addEventListener("resize", function () {
       if (window.innerWidth > 780) closeNav();
     });
   }
 
-  /* ---------- Generic modal system ----------
-     Used by projects.html, team.html and careers.html.
-     Call window.openModal(innerHtml) to show, window.closeModal() to hide.
-  --------------------------------------------- */
+  /* ---------- Generic modal system ---------- */
   var overlay = document.createElement("div");
   overlay.className = "modal-overlay";
   overlay.id = "global-modal";
@@ -117,9 +85,7 @@ document.addEventListener("DOMContentLoaded", function () {
   overlay.addEventListener("click", function (e) {
     if (e.target === overlay) closeModal();
   });
-
   overlay.querySelector(".modal-close").addEventListener("click", closeModal);
-
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape") closeModal();
   });
