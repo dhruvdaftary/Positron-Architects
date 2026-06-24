@@ -1,17 +1,56 @@
 document.addEventListener("DOMContentLoaded", function () {
   /* ---------- Mobile nav toggle ---------- */
+  var header = document.querySelector("header.site");
   var toggle = document.querySelector(".nav-toggle");
   var links = document.querySelector("nav.links");
+
+  function setHeaderHeightVar() {
+    if (header) {
+      document.documentElement.style.setProperty("--header-h", header.offsetHeight + "px");
+    }
+  }
+  setHeaderHeightVar();
+  window.addEventListener("resize", setHeaderHeightVar);
+  window.addEventListener("orientationchange", setHeaderHeightVar);
+  // Logo / web fonts loading can change header height after first paint.
+  window.addEventListener("load", setHeaderHeightVar);
+
+  function closeNav() {
+    if (!links) return;
+    links.classList.remove("open");
+    document.body.classList.remove("nav-locked");
+    if (toggle) {
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.textContent = "☰";
+    }
+  }
+
+  function openNav() {
+    if (!links) return;
+    setHeaderHeightVar();
+    links.classList.add("open");
+    document.body.classList.add("nav-locked");
+    if (toggle) {
+      toggle.setAttribute("aria-expanded", "true");
+      toggle.textContent = "✕";
+    }
+  }
+
   if (toggle && links) {
     toggle.addEventListener("click", function () {
-      links.classList.toggle("open");
-      var expanded = links.classList.contains("open");
-      toggle.setAttribute("aria-expanded", expanded ? "true" : "false");
+      if (links.classList.contains("open")) {
+        closeNav();
+      } else {
+        openNav();
+      }
     });
     links.querySelectorAll("a").forEach(function (a) {
-      a.addEventListener("click", function () {
-        links.classList.remove("open");
-      });
+      a.addEventListener("click", closeNav);
+    });
+    // Collapsing back to desktop width shouldn't leave the panel
+    // open or the scroll lock engaged.
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 780) closeNav();
     });
   }
 
