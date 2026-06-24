@@ -1,19 +1,35 @@
 document.addEventListener("DOMContentLoaded", function () {
+
   /* ---------- Mobile nav toggle ---------- */
   var header = document.querySelector("header.site");
   var toggle = document.querySelector(".nav-toggle");
-  var links = document.querySelector("nav.links");
+  var links  = document.querySelector("nav.links");
 
+  /* Measure the header and write the CSS custom property so the
+     fixed nav panel starts exactly where the header ends.          */
   function setHeaderHeightVar() {
-    if (header) {
-      document.documentElement.style.setProperty("--header-h", header.offsetHeight + "px");
-    }
+    if (!header) return;
+    var h = header.getBoundingClientRect().height;
+    document.documentElement.style.setProperty("--header-h", h + "px");
   }
+
+  /* Run once immediately so the variable exists before any paint.  */
   setHeaderHeightVar();
-  window.addEventListener("resize", setHeaderHeightVar);
-  window.addEventListener("orientationchange", setHeaderHeightVar);
-  // Logo / web fonts loading can change header height after first paint.
+
+  /* Re-measure after fonts / images finish loading – these inflate
+     the header height and would leave a gap if we only measured early. */
   window.addEventListener("load", setHeaderHeightVar);
+  window.addEventListener("resize", setHeaderHeightVar);
+  window.addEventListener("orientationchange", function () {
+    /* Small delay: the viewport dims aren't final at the moment the
+       event fires on iOS – wait one frame before measuring.          */
+    requestAnimationFrame(setHeaderHeightVar);
+  });
+
+  /* ---- open / close helpers ---- */
+  function isOpen() {
+    return links && links.classList.contains("open");
+  }
 
   function closeNav() {
     if (!links) return;
@@ -27,6 +43,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function openNav() {
     if (!links) return;
+    /* Re-measure right before opening so the panel sits flush below
+       the header even if its height changed since page load.         */
     setHeaderHeightVar();
     links.classList.add("open");
     document.body.classList.add("nav-locked");
@@ -37,18 +55,33 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   if (toggle && links) {
-    toggle.addEventListener("click", function () {
-      if (links.classList.contains("open")) {
-        closeNav();
-      } else {
-        openNav();
-      }
+
+    /* Toggle on button click */
+    toggle.addEventListener("click", function (e) {
+      /* Stop the click reaching the document listener below */
+      e.stopPropagation();
+      isOpen() ? closeNav() : openNav();
     });
+
+    /* Tapping a nav link navigates AND closes the panel */
     links.querySelectorAll("a").forEach(function (a) {
       a.addEventListener("click", closeNav);
     });
-    // Collapsing back to desktop width shouldn't leave the panel
-    // open or the scroll lock engaged.
+
+    /* Tapping the dimmed page area (outside the nav panel) closes it */
+    document.addEventListener("click", function (e) {
+      if (isOpen() && !links.contains(e.target) && e.target !== toggle) {
+        closeNav();
+      }
+    });
+
+    /* Escape key closes the panel */
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && isOpen()) closeNav();
+    });
+
+    /* Snapping back to desktop width shouldn't leave the panel open
+       or the scroll-lock engaged.                                    */
     window.addEventListener("resize", function () {
       if (window.innerWidth > 780) closeNav();
     });
@@ -61,9 +94,10 @@ document.addEventListener("DOMContentLoaded", function () {
   var overlay = document.createElement("div");
   overlay.className = "modal-overlay";
   overlay.id = "global-modal";
-  overlay.innerHTML = '<div class="modal-card" role="dialog" aria-modal="true">' +
-    '<button class="modal-close" aria-label="Close">&times;</button>' +
-    '<div class="modal-content"></div>' +
+  overlay.innerHTML =
+    '<div class="modal-card" role="dialog" aria-modal="true">' +
+      '<button class="modal-close" aria-label="Close">&times;</button>' +
+      '<div class="modal-content"></div>' +
     '</div>';
   document.body.appendChild(overlay);
 
@@ -83,11 +117,13 @@ document.addEventListener("DOMContentLoaded", function () {
   overlay.addEventListener("click", function (e) {
     if (e.target === overlay) closeModal();
   });
+
   overlay.querySelector(".modal-close").addEventListener("click", closeModal);
+
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape") closeModal();
   });
 
-  window.openModal = openModal;
+  window.openModal  = openModal;
   window.closeModal = closeModal;
 });
